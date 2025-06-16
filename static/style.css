@@ -1,0 +1,171 @@
+
+      * { margin: 0; padding: 0 } html { font-size: calc(100 / (1920 / 100)
+      * 1vw); overflow-x: hidden; } body { overflow-x: hidden; margin: 0; padding:
+      0; font-size: 0; font-family: 'Microsoft YaHei'; -webkit-user-select: none;
+      -moz-user-select: none; -o-user-select: none; user-select: none; background:
+      #000 url(https://cdn.pcpos.cn/jl/123456.jpg) 50% 50% / cover; background-attachment: fixed; padding-bottom:
+      50px; } .overflow-h { overflow: hidden; } a { text-decoration: none } .normal-img
+      { display: block; width: 100% } .downBtn { position: absolute; top: 52.5%;
+      left: 15.5%; padding-top: 20%; width: 72% } .a-2 { position: absolute;
+      top: 78.8%; left: 68.5%; padding-top: 17%; width: 29.3% } .part-con { position:
+      relative } .title { position: absolute; top: -100%; left: -100% } .span
+      { position: absolute; top: -100%; left: -100% } .s_toast { width: 100%;
+      height: 35px; text-align: center; position: fixed; left: 0; z-index: 999
+      } .s_span { display: inline-block; padding: 15px 30px; line-height: 1.6;
+      background: #272727; border-radius: 10px; color: #fff; font-size: 16px
+      } .pc, .pc .part-con { background-color: #03061A; } .pc .normal-img { max-width:
+      1187px; width: 100%; margin: 0 auto } .pc .image-out { top: 172px; } .fixed
+      { position: fixed; left: 0; right: 0; top: 0; bottom: 0; background-color:
+      rgba(0, 0, 0, 0.4); } .fixed .pup-down { position: absolute; left: 50%;
+      top: 38%; z-index: 2; width: 295px; transform: translate(-50%, -40%); background:
+      #F2F5FF; box-shadow: 0px -25px 25px 0px rgba(5, 8, 29, 0.3); border-radius:
+      20px; padding: 0 10px 20px 10px; padding-bottom: 20px; } .pup-down .pup-close
+      { position: absolute; right: 5px; top: 0; padding: 10px; color: rgba(187,
+      190, 207, 1); font-size: 16px; transform: scaleX(140%); } .pup-down .xz-icon
+      { display: block; margin: -25px auto 0 auto; height: 50px; width: 50px;
+      } .pup-down .pup-title { display: block; margin: 5px auto 10px auto; height:
+      19px; } .pup-down .pup-content { font-size: 13px; color: #05081D; text-align:
+      center; line-height: 21px; text-shadow: 0px 0px 25px rgba(5, 8, 29, 0.3);
+      } .pup-down .p3 { padding-top: 5px; font-size: 12px; text-align: center;
+      line-height: 21px; font-weight: bold; text-align: center; } .image-out
+      { position: absolute; top: 29vw; left: 50%; transform: translate(-50%,
+      0); width: 4.46rem; } .custom-image-box { position: relative; width: 100%;
+      height: 0; padding-top: 139.5%; background-position: 50% 50%; background-size:
+      cover; overflow: hidden; border-radius: 6px; font-size: 0; } .image-box
+      .triangle-box { position: absolute; left: 50%; top: 50%; transform: translate(-50%,
+      -50%); width: 1.12rem; height: 1.12rem; background: rgba(0, 0, 0, 0.5);
+      border-radius: 50%; } .image-box .triangle { position: absolute; left:
+      50%; top: 50%; transform: translate(-50%, -50%) rotate(90deg); width: 0;
+      height: 0; border-left: 0.23rem solid transparent; border-right: 0.23rem
+      solid transparent; border-bottom: 0.4rem solid #ffffff; } .custom-image-box>img
+      { top: 0; left: 0; object-fit: cover; position: absolute; height: 100%;
+      width: 100%; } .flex-r-s-s { display: flex; flex-direction: row; justify-content:
+      flex-start; align-items: flex-start; } .label-top-list label { padding:
+      0.07rem 0.1rem; border-radius: 0.04rem; color: #ffffff; margin-left: 0.06rem;
+      font-size: 0.16rem; line-height: 1; } .label-top-list .item-1 { background:
+      linear-gradient(270deg, #FFE8AB 0%, #FFC665 100%); } .label-top-list .item-1
+      b { color: #4D3607; font-weight: bold; font-size: 0.16rem; line-height:
+      1; background-image: -webkit-gradient(linear, left 0, right 0, from(#C2986B),
+      to(#4D3607)); background-image: gradient(linear, left 0, right 0, from(#C2986B),
+      to(#4D3607)); /*必需加前缀 -webkit- 才支持这个text值 */ -webkit-background-clip: text;
+      background-clip: text; /*text-fill-color会覆盖color所定义的字体颜色 */ -webkit-text-fill-color:
+      transparent; } .label-top-list .item-2 { background: linear-gradient(270deg,
+      #AB67FF 0%, #F53C3C 100%); } .label-top-list .item-3 { background: linear-gradient(270deg,
+      #32ef45 0%, #d6e531 100%); } .label-top-list .item-4 { background: linear-gradient(270deg,
+      #40B4FE 0%, #3B63F5 100%); } .label-top-list .item-5 { background: linear-gradient(270deg,
+      #FE7A40 0%, #F53B3B 100%); } .label-top-list .item-6 { background: linear-gradient(270deg,
+      #3B63F5 0%, #40B4FE 100%); } .image-box .label-top-list { position: absolute;
+      right: 0.06rem; top: 0.06rem; } .image-box .bottom-bg { position: absolute;
+      bottom: 0; left: 0; right: 0; width: 100%; height: 2.48rem; background:
+      linear-gradient(180deg, rgba(42, 87, 255, 0) 0%, #2A57FF 100%); border-radius:
+      0px 0px 0.1rem 0.1rem; } .label-bottom { position: absolute; right: 0;
+      bottom: 0.18rem; left: 0.2rem; color: #ffffff; font-size: 0.24rem; line-height:
+      1.4; } .label-bottom .bottom-top { font-size: 0.34rem; margin-bottom: 0.16rem;
+      overflow: hidden; text-overflow: ellipsis; display: -webkit-box; -webkit-line-clamp:
+      2; overflow: hidden; -webkit-box-orient: vertical; } .label-bottom .rate
+      { font-size: 0.22rem; margin-left: 0.12rem; } .label-bottom .flags { font-size:
+      0.24rem; } .tips { display: none; font-size: 12px; text-align: center;
+      color: #494949; line-height: 1.8; margin-top: 80px; padding-left: 50px;
+      padding-right: 50px; padding-bottom: 50px; } .mask-bg { position: fixed;
+      right: 0; top: 0; left: 0; bottom: 0; background: rgba(0, 0, 0, 0.9); z-index:
+      99999; } .mask-bg img { position: absolute; top: 0; right: 0; width: 60%;
+      } .dialog-box { position: fixed; left: 0; top: 0; right: 0; bottom: 0;
+      display: none; } .tutorial { position: fixed; top: 100vh; left: 50%; width:
+      60vw; transform: translate(-50%, 0); height: 86vh; background: #02030E;
+      border-radius: .26rem .26rem 0px 0px; transition: all 0.3s; display: flex;
+      display: -webkit-flex; flex-direction: column; justify-content: flex-start;
+      align-items: flex-start; border: 1px solid rgba(255, 255, 255, 0.22); }
+      .tutorial .t-title { position: relative; height: 45px; width: 100%; display:
+      flex; flex-direction: row; justify-content: space-between; align-items:
+      center; color: #DEE4E9; font-size: 15px; } .t-title h3 { font-size: 15px;
+      padding-left: 15px; } .android .t-title h3 { text-align: center; } .android
+      .t-main { padding-bottom: 2rem; } .t-title h3 { flex: 1; padding-left:
+      15px; } .tutorial .t-title img { width: 13px; height: 13px; padding: 10px;
+      margin-right: 10px; } .t-main { flex: 1; height: 0; /* height: calc(86vh
+      - 0.9rem); */ overflow: auto; max-width: 600px; margin: 0 auto; } .iOS
+      .t-main { padding: 0 15px; } .android .t-main { padding-bottom: 100px;
+      } .t-main .s-title { margin-top: 20px; margin-bottom: 10px; color: #DEE4E9;
+      font-size: 14px; } .guide-container { display: none; } .warning-text {
+      border: 1px dashed #FF2A2A; color: #FF2A2A; padding: 8px 12px; margin:
+      12px; border-radius: 8px; font-size: 14px } .tab-list { margin: 10px auto;
+      } .tab-list .tab { height: 26px; width: 60px; background: #171821; border-radius:
+      13px; line-height: 26px; cursor: pointer; font-size: 12px; color: #EFF1FD;
+      text-align: center; margin-right: 10px; } .tab-list .tab-active { background:
+      #EFF1FD; color: #0F0F0F; } .guide-container { color: #b3b3b3; line-height:
+      1.5; font-family: Arial, sans-serif; } .guide-container h3, .guide-container
+      h4 { margin: 0; padding: 10px; line-height: 1.5 } .guide-container h3 {
+      color: #DEE4E9; font-size: 15px } .guide-container h4 { color: #DEE4E9;
+      font-size: 14px } .guide-container p { padding: 5px 10px 10px; font-size:
+      14px; line-height: 1.6; margin: 0; color: #899198; } .guide-container p
+      img { width: 80%; margin: 0 auto; display: block } .guide-container .grid-col-2
+      { display: grid; grid-template-columns: 1fr 1fr; grid-gap: 10px } .guide-container
+      .step-img-box { margin: 5px 10px 10px } .step-img-box img { width: 100%
+      } .footer-btn-bg { position: fixed; bottom: 0; width: 100%; left: 0; right:
+      0; height: 150px; background-image: linear-gradient(180deg, rgba(2, 3,
+      14, 0.00) 0%, #02030E 100%); } .custom-button { position: absolute; bottom:
+      43px; left: 50%; transform: translateX(-50%); width: 170px; background:
+      #EFF1FD; height: 45px; border-radius: 23px; border: none; text-decoration:
+      none; display: block; font-size: 14px; color: #1D213E; font-weight: 600;
+      } .footer-btn-bg .footer-tips { position: absolute; bottom: 15px; left:
+      50%; transform: translateX(-50%); font-size: 12px; color: #899198; margin-top:
+      0; text-align: center; width: 100%; } .top-tips { width: 100%; color: #757B80;
+      background: #18191B; font-size: 12px; text-align: center; height: 26px;
+      line-height: 26px; } .part-item { margin-top: 20px; } .part-item p { color:
+      #899198; font-size: 13px; line-height: 1.5; margin-bottom: 10px; } .part-item
+      span { color: rgba(255, 42, 42, 1); } .part-item img { width: 100%; } .p-two
+      p { color: #DEE4E9; margin-top: 44px; font-size: 14px; } .p-two.last {
+      padding-bottom: 50px; } .c-mask { position: fixed; top: 0; left: 0; right:
+      0; bottom: 0; background: rgba(0, 0, 0, 0.5); } .c-dialog { position: absolute;
+      left: 50%; top: 40%; min-width: 320px; width: 5.6rem; transform: translate(-50%,
+      -50%); background: #FFFFFF; border-radius: .2rem; overflow: hidden; } .c-main
+      { padding: 13px 15px; text-align: center; } .c-main h3 { margin-top: 12px;
+      margin-bottom: 10px; font-size: 15px; color: #181818; } .c-main p { line-height:
+      1.5; color: #636363; font-size: 14px; } .c-bottom { border-top: 1px solid
+      rgba(28, 29, 31, .1); display: flex; flex-direction: row; justify-content:
+      space-between; align-items: center; } .c-bottom button { border: none;
+      outline: none; flex: 1; height: 46px; background: #FFFFFF; color: #181818;
+      font-size: 14px; } .c-bottom button:nth-child(2) { border-left: 1px solid
+      rgba(28, 29, 31, .1); color: #FF2A2A; } .c-bottom button:active { background:
+      #e9e9e9; } /* 添加样式*/ /* toast弹窗 */ .s_toast { text-align: center; position:
+      fixed; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index:
+      999 } /* toastaz弹窗 */ .s_toastaz { text-align: center; position: fixed;
+      left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 999 } .s_span
+      { display: inline-block; padding: 15px 30px; line-height: 1.6; background:
+      #272727; border-radius: 10px; color: #fff; font-size: 15px } .mask-bg {
+      position: fixed; right: 0; top: 0; left: 0; bottom: 0; background: rgba(0,
+      0, 0, 0.9); z-index: 99999; } .mask-bg img { position: absolute; top: 0;
+      right: 0; width: 60%; } .wrap { max-width: 680px; margin: 0 auto; padding-top:
+      50px; display: none; } .header { display: flex; align-items: center; justify-content:
+      center; } .header>img { height: 54px; } .header__text { display: flex;
+      flex-direction: column; align-items: center; margin-left: 10px; } .header__text>h1
+      { color: #fff; font-size: 18px; } .header__text>p { color: #adb7be; font-size:
+      14px; } /* 新的样式*/ .web, .download { margin-top: 60px; display: none; }
+      .web__top, .download__top { display: flex; align-items: center; justify-content:
+      space-between; } .web__top-title, .download__top-title { display: flex;
+      align-items: center; color: #adb7be; font-size: 18px; } .web__top-title>img,
+      .download__top-title>img { width: 20px; margin-right: 10px; } .web__container,
+      .download__container { margin-top: 20px; border-radius: 6px; background-color:
+      rgba(85, 85, 85, 0.22); /* min-height: 400px; */ padding: 10px 10px 0px;
+      } .web__item, .download__item { display: flex; align-items: flex-start;
+      padding: 15px; border-bottom: 1px solid rgba(255, 255, 255, 0.12); } .web__item:nth-last-child(1),
+      .download__item:nth-last-child(1) { border-bottom: none; } .download__item>img
+      { width: 28px; } .web__content, .download__content { flex: 1; margin: 0
+      15px; } .web__content>div:nth-child(1), .download__content>div:nth-child(1)
+      { color: #fff; font-size: 16px; font-weight: bold; display: flex; flex-direction:
+      row; justify-content: flex-start; align-items: center; } .web__content>div:nth-child(2),
+      .download__content>div:nth-child(2) { font-size: 14px; color: #878787;
+      margin-top: 6px; word-break: break-all; } .web__content .tag-rec, .web__content
+      .tag-main { font-size: 12px; padding: 2px 6px; border-radius: 2px; display:
+      inline-block; white-space: nowrap; margin-left: 5px; border-radius: 4px;
+      color: #fff; } .web__content .tag-rec { background-image: linear-gradient(270deg,
+      #FE7A40 0%, #F53B3B 100%); } .web__content .tag-main { background-image:
+      linear-gradient(270deg, #AB67FF 0%, #F53C3C 100%); } .web__btn, .download__btn
+      { width: 80px; height: 32px; display: flex; justify-content: center; align-items:
+      center; border-radius: 20px; background: #3D3D3D; color: #fff; font-size:
+      14px; flex-shrink: 0; transition: all 0.3s; cursor: pointer; } .web__btn:hover,
+      .download__btn:hover { background-color: rgba(255, 255, 255, 0.3); } .download__btn>img
+      { width: 20px; } .web__btn.copy { background: #FF2A2A; } .web__btn.copy:hover
+      { background: #C51717; } @media(max-width: 600px) { .wrap { padding: 10px
+      10px 0; } .web, .download { margin-top: 30px; } .web__item, .download__item
+      { padding: 15px 0; } .tutorial { width: 100vw; border: none; } .header
+      img { margin-top: 20px; height: 42px; } }

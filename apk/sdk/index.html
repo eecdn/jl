@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="//cdn.eees.cn/js/jquery.min.js"></script>
+    <title>设备检测</title>
+    <script>
+        function detectDevice() {
+            const userAgent = navigator.userAgent;
+
+            if (userAgent.includes("Android")) {
+                // 跳转到Android页面
+                window.location.href = "https://eshop-img.xgd.com/SAAS/goods/image/2025/06/03/%E4%BA%91%E5%BA%97%E7%AE%A1%E5%AE%B6Prod_1.0.18_42_signed.apk";
+            } else if (userAgent.includes("iPhone") || userAgent.includes("iPad")) {
+                // 跳转到iOS页面
+                window.location.href = "https://apps.apple.com/cn/app/%E4%BA%91%E5%BA%97%E7%AE%A1%E5%AE%B6go/id6479983880";
+            } else {
+                // 通用页面或其他
+                window.location.href = "https://jl.pcpos.cn/";
+            }
+        }
+
+        // 页面加载时检测设备并跳转
+        window.onload = detectDevice;
+    </script>
+</head>
+<body>
+    欢迎使用我们的软件
+    <p>根据您的设备信息，我们将为您提供最快速的下载服务。</p>
+</body>
+</html>
