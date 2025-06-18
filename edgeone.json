@@ -20,19 +20,27 @@
 }
 {
   "headers": [
-    // 针对所有字体文件
+    // 针对字体文件的路径模式设置
     {
-      "path": "/fonts/*",  // 假设字体存放在 /fonts 目录
+      "path": "/*.ttf",  // 匹配所有 .ttf 文件
       "headers": [
-        { "key": "Access-Control-Allow-Origin", "value": "https://your-client.com" },
-        { "key": "Access-Control-Allow-Methods", "value": "GET, OPTIONS" }
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"  // 或 "*"（如果不需要凭证）
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, OPTIONS"  // 字体文件通常只需要 GET
+        }
       ]
     },
-    // 其他资源（如图片）可单独配置
     {
-      "path": "/images/*",
+      "path": "/*.woff*", // 匹配 .woff 和 .woff2 文件
       "headers": [
-        { "key": "Access-Control-Allow-Origin", "value": "*" }
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"  // 示例：允许所有域名访问
+        }
       ]
     }
   ]
