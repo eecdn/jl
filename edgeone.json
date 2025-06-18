@@ -1,4 +1,8 @@
 {
+"headers": [
+    {
+      "source": "/*",
+{
   "headers": [
     {
       "key": "Access-Control-Allow-Origin",
@@ -36,6 +40,33 @@
     },
     {
       "path": "/*.woff*", // 匹配 .woff 和 .woff2 文件
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"  // 示例：允许所有域名访问
+        }
+      ]
+    }
+  ]
+}
+{
+  "headers": [
+    // 针对字体文件的路径模式设置
+    {
+      "path": "/*.ogg",  // 匹配所有 .ttf 文件
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"  // 或 "*"（如果不需要凭证）
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, OPTIONS"  // 字体文件通常只需要 GET
+        }
+      ]
+    },
+    {
+      "path": "/*.mp3", // 匹配 .woff 和 .woff2 文件
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
