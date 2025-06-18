@@ -18,3 +18,22 @@
     }
   ]
 }
+{
+  "headers": [
+    // 针对所有字体文件
+    {
+      "path": "/fonts/*",  // 假设字体存放在 /fonts 目录
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "https://your-client.com" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, OPTIONS" }
+      ]
+    },
+    // 其他资源（如图片）可单独配置
+    {
+      "path": "/images/*",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" }
+      ]
+    }
+  ]
+}
