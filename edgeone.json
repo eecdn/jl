@@ -6,44 +6,44 @@
   "headers": [
     {
       "key": "Access-Control-Allow-Origin",
-      "value": "*"  // 允许的域名，或设为 "*"（允许所有域名）
+      "value": "*"
     },
     {
       "key": "Access-Control-Allow-Methods",
-      "value": "GET, POST, OPTIONS"       // 允许的 HTTP 方法
+      "value": "GET, POST, OPTIONS"
     },
     {
       "key": "Access-Control-Allow-Headers",
-      "value": "Content-Type, Authorization"  // 允许的自定义请求头
+      "value": "Content-Type, Authorization"
     },
     {
       "key": "Access-Control-Allow-Credentials",
-      "value": "true"  // 是否允许携带凭证（如 Cookie），需与具体域名配合使用
+      "value": "true"
     }
   ]
 }
 {
   "headers": [
-    // 针对字体文件的路径模式设置
+
     {
-      "path": "/*.ttf",  // 匹配所有 .ttf 文件
+      "path": "/*.ttf",
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "*"  // 或 "*"（如果不需要凭证）
+          "value": "*"
         },
         {
           "key": "Access-Control-Allow-Methods",
-          "value": "GET, OPTIONS"  // 字体文件通常只需要 GET
+          "value": "GET, OPTIONS"
         }
       ]
     },
     {
-      "path": "/*.woff*", // 匹配 .woff 和 .woff2 文件
+      "path": "/*.woff*",
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "*"  // 示例：允许所有域名访问
+          "value": "*" 
         }
       ]
     }
@@ -51,26 +51,26 @@
 }
 {
   "headers": [
-    // 针对字体文件的路径模式设置
+
     {
-      "path": "/*.ogg",  // 匹配所有 .ttf 文件
+      "path": "/*.ogg",
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "*"  // 或 "*"（如果不需要凭证）
+          "value": "*"
         },
         {
           "key": "Access-Control-Allow-Methods",
-          "value": "GET, OPTIONS"  // 字体文件通常只需要 GET
+          "value": "GET, OPTIONS"
         }
       ]
     },
     {
-      "path": "/*.mp3", // 匹配 .woff 和 .woff2 文件
+      "path": "/*.mp3",
       "headers": [
         {
           "key": "Access-Control-Allow-Origin",
-          "value": "*"  // 示例：允许所有域名访问
+          "value": "*"
         }
       ]
     }
