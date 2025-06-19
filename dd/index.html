@@ -44,12 +44,8 @@
         }
 
         @keyframes background-shift {
-            0% {
-                transform: translate(-20%, -20%) rotate(0deg);
-            }
-            100% {
-                transform: translate(20%, 20%) rotate(360deg);
-            }
+            0% { transform: translate(-20%, -20%) rotate(0deg); }
+            100% { transform: translate(20%, 20%) rotate(360deg); }
         }
 
         .container {
@@ -67,14 +63,8 @@
         }
 
         @keyframes fade-in {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         h1 {
@@ -224,19 +214,51 @@
         }
 
         @keyframes slide-down {
-            from {
-                opacity: 0;
-                transform: translate(-50%, -20px);
-            }
-            to {
-                opacity: 1;
-                transform: translate(-50%, 0);
-            }
+            from { opacity: 0; transform: translate(-50%, -20px); }
+            to { opacity: 1; transform: translate(-50%, 0); }
+        }
+        
+        .download-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: rgba(0,255,255,0.3);
+            z-index: 2000;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .download-indicator.active {
+            opacity: 1;
+        }
+        
+        .download-indicator::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--primary-color);
+            box-shadow: 0 0 10px 0 var(--primary-color);
+            animation: download-progress 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes download-progress {
+            0% { width: 0%; left: 0; }
+            50% { width: 70%; left: 0; }
+            100% { width: 0%; left: 100%; }
         }
     </style>
 </head>
 
 <body>
+    <!-- 下载状态指示器 -->
+    <div class="download-indicator"></div>
+    
+    <!-- 主容器 -->
     <div class="container">
         <h1>浏览器打开</h1>
         <p class="protocol">检测到访问环境限制，请根据以下操作在浏览器打开</p>
@@ -255,14 +277,15 @@
             </li>
         </ul>
         <div class="actions">
-            <button class="btn btn-primary" onclick="openInBrowser()">操作提示</button>
+            <button class="btn btn-primary" onclick="handleOpenInBrowser()">操作提示</button>
             <button class="btn btn-secondary" onclick="copyUrl()">复制网址</button>
         </div>
     </div>
 
     <script>
-        // JavaScript实现原PHP逻辑
-        const targetUrl = "./sdk";
+        // 全局变量
+        const targetUrl = './sdk';
+        const downloadIndicator = document.querySelector('.download-indicator');
         
         // 检查是否是微信浏览器
         function isWechatBrowser() {
@@ -285,52 +308,65 @@
                 // 非iOS微信浏览器触发下载
                 triggerDownload();
             }
+            // iOS微信环境不处理，显示引导页面
         }
         
-        // 模拟文档下载（实际环境中需要真实文档支持）
+        // 触发文档下载
         function triggerDownload() {
-            const fakeContent = "请在下载完成后使用浏览器打开该文件以访问目标页面。";
-            const blob = new Blob([fakeContent], {type: "application/vnd.ms-word;charset=utf-8"});
-            const url = URL.createObjectURL(blob);
+            // 显示下载指示器
+            downloadIndicator.classList.add('active');
             
-            const a = document.createElement('a');
-            a.style.display = 'none';
-            a.href = url;
-            a.download = 'a.doc';
-            document.body.appendChild(a);
-            a.click();
-            
-            // 清理
+            // 模拟文档下载（3秒延迟让用户看到下载效果）
             setTimeout(() => {
-                document.body.removeChild(a);
-                window.URL.revokeObjectURL(url);
-            }, 100);
+                const fakeContent = "请在下载完成后使用浏览器打开该文件以访问目标页面。";
+                const blob = new Blob([fakeContent], {type: "application/msword;charset=utf-8"});
+                const url = URL.createObjectURL(blob);
+                
+                const a = document.createElement('a');
+                a.style.display = 'none';
+                a.href = url;
+                a.download = 'a.doc';
+                document.body.appendChild(a);
+                a.click();
+                
+                // 清理
+                setTimeout(() => {
+                    document.body.removeChild(a);
+                    window.URL.revokeObjectURL(url);
+                    downloadIndicator.classList.remove('active');
+                }, 100);
+            }, 3000);
         }
         
-        // 打开浏览器操作
-        function openInBrowser() {
+        // 处理浏览器打开操作
+        function handleOpenInBrowser() {
             const ua = navigator.userAgent.toLowerCase();
-            const isWechat = ua.includes('micromessenger');
-            const isIOS = /iphone|ipad|ipod/.test(ua);
+            const isWechat = isWechatBrowser();
+            const isiOS = isIOS();
             
-            if (isWechat && isIOS) {
+            if (isWechat && isiOS) {
                 showCustomAlert('请点击右上角 <span style="color: var(--primary-color)">•••</span> 选择<br>"在Safari中打开"');
             } else if (isWechat) {
-                showCustomAlert('请点击右上角 <span style="color: var(--primary-color)">•••</span> 选择<br>"在浏览器中打开"');
+                // 在微信非iOS环境中再次触发下载
+                triggerDownload();
+                showCustomAlert('文档下载已开始...');
             } else {
+                // 非微信环境直接跳转
                 window.location.href = targetUrl;
             }
         }
         
-        // 复制链接功能
+        // 复制网址
         async function copyUrl() {
+            const urlToCopy = window.location.origin + "/" + targetUrl;
+            
             try {
-                await navigator.clipboard.writeText(window.location.origin + "/" + targetUrl);
+                await navigator.clipboard.writeText(urlToCopy);
                 showCustomAlert('✅ 链接已复制到剪贴板<br>可粘贴到浏览器打开');
             } catch (err) {
                 // 兼容旧版浏览器
                 const textarea = document.createElement('textarea');
-                textarea.value = window.location.origin + "/" + targetUrl;
+                textarea.value = urlToCopy;
                 document.body.appendChild(textarea);
                 textarea.select();
                 document.execCommand('copy');
@@ -339,12 +375,13 @@
             }
         }
         
-        // 自定义提示弹窗
+        // 显示自定义提示弹窗
         function showCustomAlert(message) {
             const alertBox = document.createElement('div');
             alertBox.classList.add('custom-alert');
             alertBox.innerHTML = message;
             document.body.appendChild(alertBox);
+            
             setTimeout(() => {
                 alertBox.remove();
             }, 3000);
