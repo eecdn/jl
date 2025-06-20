@@ -1,395 +1,296 @@
 <!DOCTYPE html>
-<html lang="zh">
-
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>访问通道激活</title>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>应用下载中心</title>
     <style>
-        :root {
-            --primary-color: #00FFFF;
-            --secondary-color: #6C757D;
-            --background-color: #0A0F1B;
-            --text-color: #F0F8FF;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glow-color: rgba(0, 255, 255, 0.3);
-            --shadow-color: rgba(0, 0, 0, 0.3);
-        }
-
-        body {
-            font-family: 'Roboto', sans-serif;
-            min-height: 100vh;
-            background: var(--background-color);
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        * {
             margin: 0;
             padding: 0;
-            color: var(--text-color);
-            position: relative;
-            overflow: hidden;
+            box-sizing: border-box;
+            font-family: 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
         }
-
-        body::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle at 50% 50%, rgba(0, 255, 255, 0.1) 0%, transparent 60%);
-            animation: background-shift 30s linear infinite;
-            z-index: -1;
-        }
-
-        @keyframes background-shift {
-            0% { transform: translate(-20%, -20%) rotate(0deg); }
-            100% { transform: translate(20%, 20%) rotate(360deg); }
-        }
-
-        .container {
-            background: var(--glass-bg);
-            border-radius: 20px;
-            padding: 32px;
-            box-shadow: 0 8px 32px 0 var(--shadow-color), 0 0 40px 0 var(--glow-color);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-            animation: fade-in 0.6s ease-out;
-        }
-
-        @keyframes fade-in {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        h1 {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 36px;
-            margin-bottom: 16px;
-            color: var(--primary-color);
-            text-shadow: 0 0 10px var(--primary-color);
-        }
-
-        .protocol {
-            font-size: 16px;
-            margin-bottom: 32px;
-            line-height: 1.6;
-            color: var(--text-color);
-        }
-
-        .steps {
-            list-style-type: none;
-            padding: 0;
-            margin-bottom: 32px;
-        }
-
-        .step {
-            display: flex;
-            align-items: center;
-            margin-bottom: 16px;
-            background: var(--glass-bg);
-            border-radius: 12px;
-            padding: 16px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 16px 0 var(--shadow-color);
-            position: relative;
-        }
-
-        .step::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.1), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .step:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-5px);
-        }
-
-        .step:hover::before {
-            opacity: 1;
-        }
-
-        .step-number {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-right: 16px;
-            text-shadow: 0 0 5px var(--primary-color);
-        }
-
-        .step-description {
-            text-align: left;
-            font-size: 16px;
-            color: var(--text-color);
-        }
-
-        .actions {
+        
+        body {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: #fff;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            align-items: center;
+            padding: 20px;
+            text-align: center;
         }
-
-        .btn {
-            padding: 16px 32px;
-            border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            outline: none;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn::before {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
+        
+        .container {
+            max-width: 600px;
+            width: 100%;
             background: rgba(255, 255, 255, 0.1);
-            transform: rotate(45deg);
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 40px 30px;
+            margin-top: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
-
-        .btn:hover::before {
-            opacity: 1;
+        
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(45deg, #ff9a9e 0%, #fad0c4 100%);
+            border-radius: 24px;
+            margin: 0 auto 25px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
-
+        
+        .logo i {
+            font-size: 60px;
+            color: white;
+        }
+        
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        p {
+            font-size: 18px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .device-info {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 15px;
+            border-radius: 12px;
+            margin: 20px 0;
+            font-size: 16px;
+        }
+        
+        .guide {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 16px;
+            padding: 25px;
+            margin: 30px 0;
+            text-align: left;
+        }
+        
+        .guide h2 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .guide h2 i {
+            margin-right: 10px;
+            font-size: 24px;
+        }
+        
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .step {
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .step-number {
+            background: #fff;
+            color: #2575fc;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            flex: 1;
+        }
+        
+        .buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 30px;
+        }
+        
+        .btn {
+            padding: 16px 24px;
+            border-radius: 50px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn i {
+            margin-right: 10px;
+            font-size: 22px;
+        }
+        
         .btn-primary {
-            background: var(--primary-color);
-            color: var(--background-color);
-            box-shadow: 0 0 20px 0 var(--primary-color);
+            background: #fff;
+            color: #2575fc;
+            box-shadow: 0 6px 15px rgba(37, 117, 252, 0.4);
         }
-
+        
         .btn-primary:hover {
-            background: #00E5E5;
-            transform: translateY(-5px);
-            box-shadow: 0 0 30px 0 var(--primary-color);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(37, 117, 252, 0.5);
         }
-
+        
         .btn-secondary {
             background: transparent;
-            border: 2px solid var(--primary-color);
-            color: var(--primary-color);
-            box-shadow: 0 0 10px 0 var(--primary-color);
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.5);
         }
-
+        
         .btn-secondary:hover {
-            background: rgba(0, 255, 255, 0.1);
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px 0 var(--primary-color);
-        }
-
-        .custom-alert {
-            position: fixed;
-            top: 20px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.8);
-            color: var(--text-color);
-            padding: 16px 32px;
-            border-radius: 12px;
-            box-shadow: 0 0 20px 0 var(--shadow-color);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            z-index: 1000;
-            animation: slide-down 0.3s ease-out;
-        }
-
-        @keyframes slide-down {
-            from { opacity: 0; transform: translate(-50%, -20px); }
-            to { opacity: 1; transform: translate(-50%, 0); }
+            background: rgba(255, 255, 255, 0.1);
         }
         
-        .download-indicator {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: rgba(0,255,255,0.3);
-            z-index: 2000;
-            opacity: 0;
-            transition: opacity 0.3s;
+        .footer {
+            margin-top: 40px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.7);
         }
         
-        .download-indicator.active {
-            opacity: 1;
-        }
-        
-        .download-indicator::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 0;
-            height: 100%;
-            background: var(--primary-color);
-            box-shadow: 0 0 10px 0 var(--primary-color);
-            animation: download-progress 1.5s ease-in-out infinite;
-        }
-        
-        @keyframes download-progress {
-            0% { width: 0%; left: 0; }
-            50% { width: 70%; left: 0; }
-            100% { width: 0%; left: 100%; }
+        @media (max-width: 480px) {
+            .container {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 28px;
+            }
+            
+            p {
+                font-size: 16px;
+            }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-
 <body>
-    <!-- 下载状态指示器 -->
-    <div class="download-indicator"></div>
-    
-    <!-- 主容器 -->
     <div class="container">
-        <h1>浏览器打开</h1>
-        <p class="protocol">检测到访问环境限制，请根据以下操作在浏览器打开</p>
-        <ul class="steps">
-            <li class="step">
-                <span class="step-number">1</span>
-                <span class="step-description">点击右上角 <strong style="color: var(--primary-color)">•••</strong> 系统菜单</span>
-            </li>
-            <li class="step">
-                <span class="step-number">2</span>
-                <span class="step-description">选择 <strong style="color: var(--primary-color)">[浏览器打开]</strong> 选项</span>
-            </li>
-            <li class="step">
-                <span class="step-number">3</span>
-                <span class="step-description">完成浏览器打开并进入下载</span>
-            </li>
-        </ul>
-        <div class="actions">
-            <button class="btn btn-primary" onclick="handleOpenInBrowser()">操作提示</button>
-            <button class="btn btn-secondary" onclick="copyUrl()">复制网址</button>
+        <div class="logo">
+            <i class="fas fa-mobile-alt"></i>
         </div>
+        
+        <h1>应用下载中心</h1>
+        <p>请根据您的设备类型选择下载方式</p>
+        
+        <div class="device-info">
+            检测到您正在使用 <span id="device-type">未知设备</span> 通过 <span id="browser-type">未知浏览器</span> 访问
+        </div>
+        
+        <div class="guide" id="wechat-guide">
+            <h2><i class="fas fa-exclamation-triangle"></i> 微信访问提示</h2>
+            <p>微信内置浏览器限制了应用下载功能，请按以下步骤操作：</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">点击右上角 <i class="fas fa-ellipsis-v"></i> 菜单按钮</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">选择"在浏览器打开"</div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">返回此页面完成下载</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="buttons">
+            <a href="#" class="btn btn-primary" id="download-btn">
+                <i class="fas fa-download"></i> 立即下载应用
+            </a>
+            <a href="#" class="btn btn-secondary" id="appstore-link">
+                <i class="fab fa-apple"></i> App Store 下载
+            </a>
+        </div>
+    </div>
+    
+    <div class="footer">
+        <p>© 2023 应用下载中心 | 安全可靠的应用下载平台</p>
     </div>
 
     <script>
-        // 全局变量
-        const targetUrl = './sdk';
-        const downloadIndicator = document.querySelector('.download-indicator');
-        
-        // 检查是否是微信浏览器
-        function isWechatBrowser() {
-            const ua = navigator.userAgent.toLowerCase();
-            return ua.includes('micromessenger');
-        }
-        
-        // 检查是否是iOS设备
-        function isIOS() {
-            const ua = navigator.userAgent;
-            return /iphone|ipad|ipod/.test(ua.toLowerCase());
-        }
-        
-        // 页面加载时执行环境检测
-        function checkEnvironment() {
-            if (!isWechatBrowser()) {
-                // 非微信环境直接跳转
-                window.location.href = targetUrl;
-            } else if (isWechatBrowser() && !isIOS()) {
-                // 非iOS微信浏览器触发下载
-                triggerDownload();
+        document.addEventListener('DOMContentLoaded', function() {
+            const userAgent = navigator.userAgent;
+            const isWeChat = /MicroMessenger/i.test(userAgent);
+            const isAndroid = /Android/i.test(userAgent);
+            const isIOS = /iPhone|iPad|iPod/i.test(userAgent);
+            
+            const deviceType = document.getElementById('device-type');
+            const browserType = document.getElementById('browser-type');
+            const wechatGuide = document.getElementById('wechat-guide');
+            const downloadBtn = document.getElementById('download-btn');
+            const appstoreLink = document.getElementById('appstore-link');
+            
+            // 设置设备类型显示
+            if (isAndroid) {
+                deviceType.textContent = 'Android 设备';
+            } else if (isIOS) {
+                deviceType.textContent = 'iOS 设备';
             }
-            // iOS微信环境不处理，显示引导页面
-        }
-        
-        // 触发文档下载
-        function triggerDownload() {
-            // 显示下载指示器
-            downloadIndicator.classList.add('active');
             
-            // 模拟文档下载（3秒延迟让用户看到下载效果）
-            setTimeout(() => {
-                const fakeContent = "请在下载完成后使用浏览器打开该文件以访问目标页面。";
-                const blob = new Blob([fakeContent], {type: "application/msword;charset=utf-8"});
-                const url = URL.createObjectURL(blob);
-                
-                const a = document.createElement('a');
-                a.style.display = 'none';
-                a.href = url;
-                a.download = 'a.doc';
-                document.body.appendChild(a);
-                a.click();
-                
-                // 清理
-                setTimeout(() => {
-                    document.body.removeChild(a);
-                    window.URL.revokeObjectURL(url);
-                    downloadIndicator.classList.remove('active');
-                }, 100);
-            }, 3000);
-        }
-        
-        // 处理浏览器打开操作
-        function handleOpenInBrowser() {
-            const ua = navigator.userAgent.toLowerCase();
-            const isWechat = isWechatBrowser();
-            const isiOS = isIOS();
+            // 设置浏览器类型显示
+            browserType.textContent = isWeChat ? '微信内置浏览器' : '系统浏览器';
             
-            if (isWechat && isiOS) {
-                showCustomAlert('请点击右上角 <span style="color: var(--primary-color)">•••</span> 选择<br>"在Safari中打开"');
-            } else if (isWechat) {
-                // 在微信非iOS环境中再次触发下载
-                triggerDownload();
-                showCustomAlert('文档下载已开始...');
+            // 设置下载链接（实际应用中替换为真实链接）
+            downloadBtn.href = 'https://example.com/app-release.apk';
+            appstoreLink.href = 'https://apps.apple.com/app/id123456789';
+            
+            // 微信环境处理
+            if (isWeChat) {
+                wechatGuide.style.display = 'block';
+                
+                // 如果是微信+Android环境，自动引导到浏览器下载
+                if (isAndroid) {
+                    // 在实际应用中，这里可以尝试自动跳转
+                    // window.location.href = 'https://example.com/download-page';
+                    
+                    // 显示Android专用提示
+                    wechatGuide.querySelector('p').textContent = 
+                        '微信内置浏览器限制了APK文件下载，请按以下步骤操作：';
+                }
+                // 如果是微信+iOS环境，引导到App Store
+                else if (isIOS) {
+                    // 在实际应用中，这里可以尝试自动跳转
+                    // window.location.href = 'https://apps.apple.com/app/id123456789';
+                    
+                    // 显示iOS专用提示
+                    wechatGuide.querySelector('p').textContent = 
+                        '微信内置浏览器无法直接打开App Store，请按以下步骤操作：';
+                }
             } else {
-                // 非微信环境直接跳转
-                window.location.href = targetUrl;
+                wechatGuide.style.display = 'none';
             }
-        }
-        
-        // 复制网址
-        async function copyUrl() {
-            const urlToCopy = window.location.origin + "/" + targetUrl;
-            
-            try {
-                await navigator.clipboard.writeText(urlToCopy);
-                showCustomAlert('✅ 链接已复制到剪贴板<br>可粘贴到浏览器打开');
-            } catch (err) {
-                // 兼容旧版浏览器
-                const textarea = document.createElement('textarea');
-                textarea.value = urlToCopy;
-                document.body.appendChild(textarea);
-                textarea.select();
-                document.execCommand('copy');
-                document.body.removeChild(textarea);
-                showCustomAlert('✅ 链接已复制到剪贴板');
-            }
-        }
-        
-        // 显示自定义提示弹窗
-        function showCustomAlert(message) {
-            const alertBox = document.createElement('div');
-            alertBox.classList.add('custom-alert');
-            alertBox.innerHTML = message;
-            document.body.appendChild(alertBox);
-            
-            setTimeout(() => {
-                alertBox.remove();
-            }, 3000);
-        }
-        
-        // 页面加载后运行环境检测
-        window.addEventListener('DOMContentLoaded', checkEnvironment);
+        });
     </script>
 </body>
-
 </html>
